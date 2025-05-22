@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap para Dominar Dart: De Novato a Experto</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1><span class="emoji">🚀</span> Roadmap para Dominar Dart: De Novato a Experto <span class="emoji">🎯</span></h1>
+        <button id="toggleDarkMode">Modo Oscuro</button>
+    </header>
+
+    <div class="container">
+        <nav class="toc">
+            <h3>Tabla de Contenidos</h3>
+            <ul>
+                <li><a href="#fase1">Fase 1: Cimientos</a></li>
+                <li><a href="#fase2">Fase 2: Funciones y Colecciones</a></li>
+                <li><a href="#fase3">Fase 3: POO</a></li>
+                <li><a href="#fase4">Fase 4: Asincronía y Avanzado</a></li>
+                <li><a href="#fase5">Fase 5: Especialización</a></li>
+                <li><a href="#recursos">Recursos</a></li>
+            </ul>
+        </nav>
+
+        <section id="fase1" class="roadmap-section">
+            <h2><span class="emoji">🧱</span> Fase 1: Los Cimientos de Dart (Principiante)</h2>
+            <button class="toggle-content">Mostrar/Ocultar Contenido</button>
+            <div class="content hidden">
+                <p>En esta fase, te familiarizarás con la sintaxis básica y los conceptos fundamentales de Dart.</p>
+
+                <h3>1. Introducción a Dart:</h3>
+                <ul>
+                    <li><strong>¿Qué es Dart?</strong> <span class="emoji">🤔</span> Historia, filosofía y casos de uso (Flutter, AngularDart, desarrollo de backend).</li>
+                    <li><strong>Ventajas de Dart:</strong> Tipado fuerte opcional, compilación JIT y AOT, excelente rendimiento, sintaxis familiar.</li>
+                    <li><strong>Configuración del Entorno:</strong>
+                        <ul>
+                            <li>Instalación del SDK de Dart.</li>
+                            <li>Elección de un IDE: VS Code (recomendado con extensiones de Dart y Flutter), IntelliJ IDEA/Android Studio.</li>
+                            <li>DartPad: Una herramienta online para probar código Dart rápidamente.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Tu Primer Programa Dart:</strong> El clásico "Hola, Mundo".
+                        <pre><code class="language-dart">
+void main() {
+  print('¡Hola, Mundo!');
+}
+                        </code></pre>
+                    </li>
+                    <li><strong>Comentarios en Dart:</strong>
+                        <pre><code class="language-dart">
+// Esto es un comentario de una línea.
+/*
+Esto es un
+comentario multilínea.
+*/
+/// Esto es un comentario de documentación.
+                        </code></pre>
+                    </li>
+                </ul>
+
+                <h3>2. Variables y Tipos de Datos:</h3>
+                <ul>
+                    <li><strong>Declaración de Variables:</strong> <code>var</code>, <code>final</code>, <code>const</code>.
+                        <ul>
+                            <li><strong><code>var</code></strong>: Inferencia de tipo. El tipo se determina en tiempo de compilación.</li>
+                            <li><strong><code>final</code></strong>: Variable de asignación única. Su valor se conoce en tiempo de ejecución y no puede cambiar después de la asignación.</li>
+                            <li><strong><code>const</code></strong>: Constante de tiempo de compilación. Su valor debe conocerse en tiempo de compilación.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Tipos de Datos Primitivos:</strong>
+                        <ul>
+                            <li><strong><code>int</code></strong>: Números enteros (ej: <code>10</code>, <code>-5</code>).</li>
+                            <li><strong><code>double</code></strong>: Números de punto flotante (ej: <code>3.14</code>, <code>-0.001</code>).</li>
+                            <li><strong><code>String</code></strong>: Secuencias de caracteres (ej: <code>"Hola"</code>, <code>'Dart'</code>). Interpolación de strings: <code>"$variable"</code> o <code>"${expresion}"</code>.</li>
+                            <li><strong><code>bool</code></strong>: Valores booleanos (<code>true</code>, <code>false</code>).</li>
+                            <li><strong><code>num</code></strong>: Supertipo de <code>int</code> y <code>double</code>.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Literales:</strong> Cómo se escriben los valores directamente en el código.</li>
+                    <li><strong>Conversión de Tipos (Type Casting):</strong>
+                        <pre><code class="language-dart">
+String numeroEnTexto = '10';
+int numero = int.parse(numeroEnTexto);
+String textoDesdeNumero = numero.toString();
+                        </code></pre>
+                    </li>
+                    <li><strong>Nulabilidad (Null Safety):</strong> Entendiendo <code>?</code>, <code>!</code>, y <code>late</code>.
+                        <ul>
+                            <li>Por defecto, las variables no pueden ser nulas.</li>
+                            <li><code>String? nombre;</code> // Puede ser nulo.</li>
+                            <li><code>nombre!.length;</code> // Operador de aserción: ¡estoy seguro de que no es nulo! (Usar con precaución).</li>
+                            <li><code>late String descripcion;</code> // Se inicializará más tarde, antes de su primer uso.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>3. Operadores:</h3>
+                <ul>
+                    <li><strong>Aritméticos:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>~/</code> (división entera), <code>%</code> (módulo).</li>
+                    <li><strong>De Igualdad y Relacionales:</strong> <code>==</code>, <code>!=</code>, <code>></code>, <code><</code>, <code>>=</code>, <code><=</code>.</li>
+                    <li><strong>De Asignación:</strong> <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>~/=</code>, <code>%=</code>.</li>
+                    <li><strong>Lógicos:</strong> <code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (NOT).</li>
+                    <li><strong>De Incremento y Decremento:</strong> <code>++variable</code>, <code>variable++</code>, <code>--variable</code>, <code>variable--</code>.</li>
+                    <li><strong>Condicionales (Ternario):</strong> <code>condicion ? expresionSiVerdadero : expresionSiFalso</code>.</li>
+                    <li><strong>Operador de Cascada (<code>..</code>):</strong> Permite realizar una secuencia de operaciones en el mismo objeto.
+                        <pre><code class="language-dart">
+var paint = Paint()
+  ..color = Colors.black
+  ..strokeCap = StrokeCap.round
+  ..strokeWidth = 5.0;
+                        </code></pre>
+                    </li>
+                    <li><strong>Operadores de Tipo:</strong> <code>as</code>, <code>is</code>, <code>is!</code>.</li>
+                </ul>
+
+                <h3>4. Estructuras de Control de Flujo:</h3>
+                <ul>
+                    <li><strong>Condicionales:</strong>
+                        <ul>
+                            <li><code>if-else if-else</code>:
+                                <pre><code class="language-dart">
+int edad = 18;
+if (edad >= 18) {
+  print('Es mayor de edad.');
+} else if (edad < 0) {
+  print('Edad inválida.');
+} else {
+  print('Es menor de edad.');
+}
+                                </code></pre>
+                            </li>
+                            <li><code>switch-case</code>:
+                                <pre><code class="language-dart">
+String fruta = 'manzana';
+switch (fruta) {
+  case 'manzana':
+    print('Es una manzana.');
+    break; // ¡No olvides el break! (O usa `continue` con una etiqueta)
+  case 'banana':
+    print('Es una banana.');
+    break;
+  default:
+    print('Es otra fruta.');
+}
+                                </code></pre>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Bucles:</strong>
+                        <ul>
+                            <li><code>for</code>:
+                                <pre><code class="language-dart">
+for (int i = 0; i < 5; i++) {
+  print('Iteración: $i');
+}
+                                </code></pre>
+                            </li>
+                            <li><code>for-in</code> (para iterar sobre colecciones):
+                                <pre><code class="language-dart">
+var numeros = [1, 2, 3, 4, 5];
+for (var numero in numeros) {
+  print(numero);
+}
+                                </code></pre>
+                            </li>
+                            <li><code>while</code>:
+                                <pre><code class="language-dart">
+int contador = 0;
+while (contador < 3) {
+  print('Contador (while): $contador');
+  contador++;
+}
+                                </code></pre>
+                            </li>
+                            <li><code>do-while</code>:
+                                <pre><code class="language-dart">
+int otroContador = 0;
+do {
+  print('Contador (do-while): $otroContador');
+  otroContador++;
+} while (otroContador < 3);
+                                </code></pre>
+                            </li>
+                            <li><code>break</code> y <code>continue</code>: Para controlar el flujo dentro de los bucles.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="ejercicios">
+                    <h4><span class="emoji">🏋️</span> Ejercicios Fase 1:</h4>
+                    <ol>
+                        <li>Crea un programa que pida al usuario su nombre y edad, y luego imprima un mensaje saludándolo y diciendo si es mayor o menor de edad.</li>
+                        <li>Escribe un programa que calcule el área de un círculo pidiendo el radio al usuario.</li>
+                        <li>Implementa una calculadora básica que realice operaciones de suma, resta, multiplicación y división utilizando <code>if-else</code> o <code>switch</code>.</li>
+                        <li>Crea un programa que imprima los números pares del 1 al 20 usando un bucle <code>for</code>.</li>
+                        <li>Desarrolla un pequeño juego de adivinar un número (generado aleatoriamente) donde el usuario tiene un número limitado de intentos.</li>
+                    </ol>
+                </div>
+
+                <div class="trucos-consejos">
+                    <h4><span class="emoji">💡</span> Trucos y Consejos Fase 1:</h4>
+                    <ul>
+                        <li><strong>Formato de Código:</strong> Usa <code>dart format .</code> en la terminal para formatear tu código automáticamente. Los IDEs suelen tener una opción para hacerlo al guardar.</li>
+                        <li><strong>Análisis Estático:</strong> Presta atención a las advertencias y errores del analizador de Dart. Te ayudará a escribir código más limpio y robusto.</li>
+                        <li><strong>Experimenta en DartPad:</strong> Es tu campo de pruebas ideal para pequeños fragmentos de código.</li>
+                        <li><strong>Lee la Documentación Oficial:</strong> Es tu mejor amiga (<code>dart.dev</code>).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="fase2" class="roadmap-section">
+            <h2><span class="emoji">🛠️</span> Fase 2: Funciones y Colecciones (Intermedio Bajo)</h2>
+            <button class="toggle-content">Mostrar/Ocultar Contenido</button>
+            <div class="content hidden">
+                <p>Aquí aprenderás a organizar tu código en bloques reutilizables y a manejar grupos de datos.</p>
+
+                <h3>1. Funciones:</h3>
+                <ul>
+                    <li><strong>Definición y Llamada:</strong>
+                        <pre><code class="language-dart">
+// Función sin parámetros y sin valor de retorno
+void saludar() {
+  print('¡Hola desde la función!');
+}
+
+// Función con parámetros y valor de retorno
+int sumar(int a, int b) {
+  return a + b;
+}
+
+// Llamada a las funciones
+saludar();
+int resultado = sumar(5, 3);
+print('Resultado de la suma: $resultado');
+                        </code></pre>
+                    </li>
+                    <li><strong>Parámetros:</strong>
+                        <ul>
+                            <li><strong>Posicionales:</strong> Obligatorios y en orden.</li>
+                            <li><strong>Nombrados:</strong> Opcionales y se identifican por su nombre. Se usan llaves <code>{}</code>.
+                                <pre><code class="language-dart">
+void imprimirInfo({String nombre = 'Desconocido', required int edad}) {
+  print('Nombre: $nombre, Edad: $edad');
+}
+imprimirInfo(edad: 30, nombre: 'Ana');
+imprimirInfo(edad: 25); // Usa el valor por defecto para nombre
+                                </code></pre>
+                            </li>
+                            <li><strong>Opcionales Posicionales:</strong> Se usan corchetes <code>[]</code>.
+                                <pre><code class="language-dart">
+String saludarCompleto(String nombre, [String? apellido]) {
+  if (apellido != null) {
+    return 'Hola, $nombre $apellido';
+  }
+  return 'Hola, $nombre';
+}
+print(saludarCompleto('Juan'));
+print(saludarCompleto('Juan', 'Pérez'));
+                                </code></pre>
+                            </li>
+                            <li><strong>Valores por Defecto para Parámetros.</strong></li>
+                        </ul>
+                    </li>
+                    <li><strong>Funciones Flecha (Arrow Functions):</strong> Para funciones de una sola expresión.
+                        <pre><code class="language-dart">
+int multiplicar(int a, int b) => a * b;
+                        </code></pre>
+                    </li>
+                    <li><strong>Alcance de Variables (Scope):</strong> Variables locales vs. globales.</li>
+                    <li><strong>Funciones Anónimas (Lambdas):</strong> Funciones sin nombre, útiles para callbacks.
+                        <pre><code class="language-dart">
+var lista = ['a', 'b', 'c'];
+lista.forEach((item) {
+  print(item.toUpperCase());
+});
+                        </code></pre>
+                    </li>
+                    <li><strong>Funciones de Primera Clase:</strong> Las funciones pueden ser asignadas a variables, pasadas como argumentos y devueltas por otras funciones.</li>
+                </ul>
+
+                <h3>2. Colecciones:</h3>
+                <ul>
+                    <li><strong><code>List</code> (Listas/Arrays):</strong> Colecciones ordenadas de elementos.
+                        <ul>
+                            <li>Creación: <code>var miLista = [1, 2, 3];</code> o <code>List&lt;String&gt; nombres = ['Ana', 'Luis'];</code></li>
+                            <li>Acceso a elementos: <code>miLista[0]</code>.</li>
+                            <li>Propiedades comunes: <code>length</code>, <code>isEmpty</code>, <code>isNotEmpty</code>, <code>first</code>, <code>last</code>.</li>
+                            <li>Métodos comunes: <code>add()</code>, <code>addAll()</code>, <code>remove()</code>, <code>removeAt()</code>, <code>insert()</code>, <code>clear()</code>, <code>indexOf()</code>, <code>contains()</code>, <code>forEach()</code>, <code>map()</code>, <code>where()</code>, <code>reduce()</code>, <code>fold()</code>.</li>
+                            <li><strong>Spread Operator (<code>...</code> y <code>...?</code>):</strong> Para expandir elementos de una lista dentro de otra.
+                                <pre><code class="language-dart">
+var lista1 = [1, 2, 3];
+var lista2 = [0, ...lista1, 4, 5]; // [0, 1, 2, 3, 4, 5]
+List&lt;int&gt;? listaNula;
+var lista3 = [7, ...?listaNula, 8]; // [7, 8] (si listaNula es null, no añade nada)
+                                </code></pre>
+                            </li>
+                            <li><strong>Collection <code>if</code> y <code>for</code>:</strong> Para construir listas de forma condicional o iterativa.
+                                <pre><code class="language-dart">
+bool incluirCinco = true;
+var numerosPares = [
+  for (int i = 0; i &lt;= 10; i++) if (i % 2 == 0) i,
+  if (incluirCinco) 50 // Ejemplo, no es par pero para ilustrar
+];
+print(numerosPares); // [0, 2, 4, 6, 8, 10, 50]
+                                </code></pre>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong><code>Set</code> (Conjuntos):</strong> Colecciones desordenadas de elementos únicos.
+                        <ul>
+                            <li>Creación: <code>var miSet = {1, 2, 3, 2};</code> o <code>Set&lt;String&gt; frutas = {'manzana', 'pera'};</code> (Notar que el <code>2</code> duplicado se ignora).</li>
+                            <li>Útil para eliminar duplicados de una lista: <code>List.from(Set.from(listaConDuplicados))</code>.</li>
+                            <li>Métodos comunes: <code>add()</code>, <code>remove()</code>, <code>contains()</code>, <code>union()</code>, <code>intersection()</code>, <code>difference()</code>.</li>
+                        </ul>
+                    </li>
+                    <li><strong><code>Map</code> (Mapas/Diccionarios):</strong> Colecciones de pares clave-valor.
+                        <ul>
+                            <li>Creación: <code>var miMapa = {'nombre': 'Carlos', 'edad': 30};</code> o <code>Map&lt;String, dynamic&gt; persona = {'ciudad': 'Madrid', 'activo': true};</code></li>
+                            <li>Acceso a valores: <code>miMapa['nombre']</code>.</li>
+                            <li>Propiedades comunes: <code>keys</code>, <code>values</code>, <code>length</code>, <code>isEmpty</code>, <code>isNotEmpty</code>.</li>
+                            <li>Métodos comunes: <code>putIfAbsent()</code>, <code>remove()</code>, <code>containsKey()</code>, <code>containsValue()</code>, <code>forEach()</code>.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>3. Manejo de Errores (Excepciones):</h3>
+                <ul>
+                    <li><strong><code>try-catch</code>:</strong> Para manejar excepciones esperadas.
+                        <pre><code class="language-dart">
+try {
+  int resultado = 10 ~/ 0; // División por cero, lanzará una excepción
+  print(resultado);
+} on IntegerDivisionByZeroException {
+  print('Error: No se puede dividir por cero.');
+} catch (e, s) { // 'e' es la excepción, 's' es el StackTrace
+  print('Ocurrió una excepción inesperada: $e');
+  print('StackTrace: $s');
+} finally {
+  print('Este bloque se ejecuta siempre, haya o no excepción.');
+}
+                        </code></pre>
+                    </li>
+                    <li><strong><code>on</code>:</strong> Para capturar tipos específicos de excepciones.</li>
+                    <li><strong><code>throw</code>:</strong> Para lanzar excepciones manualmente.
+                        <pre><code class="language-dart">
+void verificarEdad(int edad) {
+  if (edad < 0) {
+    throw ArgumentError('La edad no puede ser negativa.');
+  }
+  print('Edad válida.');
+}
+                        </code></pre>
+                    </li>
+                    <li><strong>Creación de Excepciones Personalizadas:</strong> Implementando la interfaz <code>Exception</code>.</li>
+                </ul>
+
+                <div class="ejercicios">
+                    <h4><span class="emoji">🏋️</span> Ejercicios Fase 2:</h4>
+                    <ol>
+                        <li>Escribe una función que reciba una lista de números y devuelva la suma de todos ellos.</li>
+                        <li>Crea una función que tome un <code>String</code> y devuelva <code>true</code> si es un palíndromo, <code>false</code> en caso contrario.</li>
+                        <li>Desarrolla un programa que gestione una lista de tareas (TODO list): añadir tarea, marcar como completada, eliminar tarea, mostrar tareas. Usa una <code>List</code> de <code>Map</code>s.</li>
+                        <li>Implementa una función que reciba una lista de <code>String</code>s y devuelva un <code>Map</code> donde las claves sean las palabras y los valores sean la cantidad de veces que aparecen.</li>
+                        <li>Modifica uno de tus programas anteriores para que maneje posibles errores de entrada del usuario usando <code>try-catch</code>.</li>
+                    </ol>
+                </div>
+
+                <div class="trucos-consejos">
+                    <h4><span class="emoji">💡</span> Trucos y Consejos Fase 2:</h4>
+                    <ul>
+                        <li><strong>Funciones Puras:</strong> Intenta escribir funciones que, para las mismas entradas, siempre produzcan las mismas salidas y no tengan efectos secundarios. Esto facilita las pruebas y el razonamiento sobre el código.</li>
+                        <li><strong>Inmutabilidad:</strong> Cuando sea posible, prefiere las colecciones inmutables o trata las colecciones como si lo fueran para evitar efectos secundarios inesperados.</li>
+                        <li><strong>Usa los Métodos de Colección:</strong> Dart tiene una rica API para colecciones. Aprende a usar <code>map</code>, <code>where</code>, <code>reduce</code>, <code>fold</code>, etc., para escribir código más conciso y expresivo.</li>
+                        <li><strong>Documenta tus Funciones:</strong> Usa comentarios de documentación (<code>///</code>) para explicar qué hace cada función, sus parámetros y lo que devuelve. <code>dart doc .</code> puede generar documentación HTML.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="fase3" class="roadmap-section">
+            <h2><span class="emoji">🏛️</span> Fase 3: Programación Orientada a Objetos (POO) en Dart (Intermedio Alto)</h2>
+            <button class="toggle-content">Mostrar/Ocultar Contenido</button>
+            <div class="content hidden">
+                 <p>Dart es un lenguaje orientado a objetos. Aquí dominarás sus características.</p>
+
+                <h3>1. Clases y Objetos:</h3>
+                <ul>
+                    <li><strong>Definición de Clases:</strong>
+                        <pre><code class="language-dart">
+class Persona {
+  // Atributos (campos o propiedades de instancia)
+  String nombre;
+  int edad;
+  String? _secreto; // Atributo privado (convención con guion bajo)
+
+  // Constructor (Sintaxis corta para asignar parámetros a atributos)
+  Persona(this.nombre, this.edad);
+
+  // Constructor con nombre
+  Persona.nacimiento(this.nombre) : edad = 0;
+
+  // Métodos
+  void saludar() {
+    print('Hola, soy $nombre y tengo $edad años.');
+  }
+
+  // Getter
+  String get descripcion => '$nombre ($edad)';
+
+  // Setter
+  set nuevaEdad(int valor) {
+    if (valor > 0) {
+      edad = valor;
+    }
+  }
+
+  // Método privado
+  void _revelarSecreto() {
+    print('Mi secreto es: $_secreto');
+  }
+}
+                        </code></pre>
+                    </li>
+                    <li><strong>Instanciación de Objetos:</strong>
+                        <pre><code class="language-dart">
+var persona1 = Persona('Ana', 30); // `new` es opcional
+var persona2 = Persona.nacimiento('Bebé');
+persona1.saludar();
+print(persona1.descripcion);
+persona1.nuevaEdad = 31;
+                        </code></pre>
+                    </li>
+                    <li><strong>Constructores:</strong>
+                        <ul>
+                            <li>Constructor por defecto.</li>
+                            <li>Constructores con nombre (<code>ClassName.constructorName()</code>).</li>
+                            <li>Constructores <code>factory</code> (para devolver instancias cacheadas o subtipos).</li>
+                            <li>Constructores <code>const</code> (para crear objetos constantes en tiempo de compilación).</li>
+                            <li>Listas de inicializadores.</li>
+                        </ul>
+                    </li>
+                    <li><strong><code>this</code></strong>: Referencia a la instancia actual.</li>
+                    <li><strong>Miembros de Instancia vs. Miembros Estáticos (<code>static</code>):</strong>
+                        <pre><code class="language-dart">
+class Contador {
+  static int numeroDeInstancias = 0;
+  int valorActual = 0;
+
+  Contador() {
+    numeroDeInstancias++;
+    valorActual++;
+  }
+
+  static void mostrarInstancias() {
+    print('Número de instancias creadas: $numeroDeInstancias');
+  }
+}
+var c1 = Contador();
+var c2 = Contador();
+print(c1.valorActual); // 1
+print(c2.valorActual); // 1
+Contador.mostrarInstancias(); // Número de instancias creadas: 2
+                        </code></pre>
+                    </li>
+                    <li><strong>Getters y Setters:</strong> Para controlar el acceso a las propiedades.</li>
+                    <li><strong>Visibilidad:</strong> En Dart, la privacidad se define a nivel de librería (archivo). Un identificador que comienza con un guion bajo (<code>_</code>) es privado para su librería.</li>
+                </ul>
+
+                <h3>2. Herencia:</h3>
+                <ul>
+                    <li><strong>Clases Base y Derivadas (<code>extends</code>):</strong>
+                        <pre><code class="language-dart">
+class Animal {
+  String nombre;
+  Animal(this.nombre);
+
+  void hacerSonido() {
+    print('El animal hace un sonido.');
+  }
+}
+
+class Perro extends Animal {
+  String raza;
+
+  Perro(String nombre, this.raza) : super(nombre); // Llama al constructor de la clase base
+
+  @override // Buena práctica indicar que se está sobrescribiendo
+  void hacerSonido() {
+    super.hacerSonido(); // Opcional: llamar al método de la clase base
+    print('El perro ladra: ¡Guau!');
+  }
+
+  void traerPelota() {
+    print('$nombre trae la pelota.');
+  }
+}
+                        </code></pre>
+                    </li>
+                    <li><strong><code>super</code></strong>: Para acceder a miembros de la clase base.</li>
+                    <li><strong>Sobrescritura de Métodos (<code>@override</code>):</strong></li>
+                    <li><strong>Clases Abstractas (<code>abstract class</code>):</strong> No se pueden instanciar directamente. Pueden tener métodos abstractos (sin implementación).
+                        <pre><code class="language-dart">
+abstract class Figura {
+  void dibujar(); // Método abstracto
+  double calcularArea(); // Otro método abstracto
+}
+
+class Circulo extends Figura {
+  double radio;
+  Circulo(this.radio);
+
+  @override
+  void dibujar() {
+    print('Dibujando un círculo de radio $radio');
+  }
+
+  @override
+  double calcularArea() {
+    return 3.14159 * radio * radio;
+  }
+}
+                        </code></pre>
+                    </li>
+                    <li><strong>Métodos Abstractos.</strong></li>
+                </ul>
+
+                <h3>3. Interfaces Implícitas y Mixins:</h3>
+                <ul>
+                    <li><strong>Interfaces Implícitas (<code>implements</code>):</strong> Cualquier clase puede ser una interfaz. Obliga a la clase implementadora a proveer una implementación para todos los miembros de la interfaz.
+                        <pre><code class="language-dart">
+class Volador {
+  void volar() {
+    print('Estoy volando.');
+  }
+}
+
+class Pajaro implements Volador {
+  @override
+  void volar() {
+    print('El pájaro vuela alto.');
+  }
+}
+                        </code></pre>
+                    </li>
+                    <li><strong>Mixins (<code>mixin</code>, <code>with</code>):</strong> Una forma de reutilizar el código de una clase en múltiples jerarquías de clases. No pueden tener constructores declarados.
+                        <pre><code class="language-dart">
+mixin Nadador {
+  void nadar() {
+    print('Estoy nadando.');
+  }
+}
+
+mixin Caminante {
+  void caminar() {
+    print('Estoy caminando.');
+  }
+}
+
+class Pato extends Animal with Volador, Nadador, Caminante {
+  Pato(String nombre) : super(nombre);
+}
+
+var donald = Pato('Donald');
+donald.volar();
+donald.nadar();
+donald.caminar();
+                        </code></pre>
+                    </li>
+                    <li><strong>Restricciones en Mixins (<code>on</code>):</strong> Para especificar el supertipo requerido para usar un mixin.</li>
+                </ul>
+
+                <h3>4. Enumeraciones (<code>enum</code>):</h3>
+                <ul>
+                    <li>Para definir un conjunto fijo de constantes.
+                        <pre><code class="language-dart">
+enum Estado { pendiente, procesando, completado, fallido }
+
+void procesarPedido(Estado estadoActual) {
+  switch (estadoActual) {
+    case Estado.pendiente:
+      print('El pedido está pendiente.');
+      break;
+    // ... otros casos
+    default:
+      print('Estado desconocido.');
+  }
+}
+                        </code></pre>
+                    </li>
+                    <li><strong>Enums Mejorados (Dart 2.17+):</strong> Pueden tener campos, métodos, constructores y implementar interfaces.</li>
+                </ul>
+
+                <div class="ejercicios">
+                    <h4><span class="emoji">🏋️</span> Ejercicios Fase 3:</h4>
+                    <ol>
+                        <li>Crea una clase <code>Vehiculo</code> con propiedades como <code>marca</code>, <code>modelo</code>, <code>año</code> y un método <code>mostrarDetalles()</code>. Crea subclases como <code>Coche</code> y <code>Moto</code> que hereden de <code>Vehiculo</code> y añadan propiedades/métodos específicos (ej: <code>numeroPuertas</code> para <code>Coche</code>, <code>cilindrada</code> para <code>Moto</code>). Sobrescribe <code>mostrarDetalles()</code>.</li>
+                        <li>Define una clase abstracta <code>FiguraGeometrica</code> con un método abstracto <code>calcularArea()</code>. Crea clases <code>Rectangulo</code> y <code>Triangulo</code> que hereden de <code>FiguraGeometrica</code> e implementen <code>calcularArea()</code>.</li>
+                        <li>Crea un mixin <code>Logger</code> con un método <code>log(String mensaje)</code> que imprima el mensaje con un timestamp. Aplica este mixin a varias de tus clases.</li>
+                        <li>Modela un sistema simple de biblioteca: Clases para <code>Libro</code> (título, autor, ISBN), <code>Miembro</code> (nombre, idMiembro), y <code>Biblioteca</code> (colección de libros, colección de miembros, métodos para prestar y devolver libros).</li>
+                        <li>Usa una enumeración para representar los días de la semana y escribe una función que, dado un día, diga si es fin de semana o día laborable.</li>
+                    </ol>
+                </div>
+
+                <div class="trucos-consejos">
+                    <h4><span class="emoji">💡</span> Trucos y Consejos Fase 3:</h4>
+                    <ul>
+                        <li><strong>Principios SOLID:</strong> A medida que construyes sistemas más complejos, familiarízate con los principios SOLID para diseñar software robusto y mantenible.</li>
+                        <li><strong>Composición sobre Herencia:</strong> A menudo, es preferible componer objetos (una clase tiene una instancia de otra clase) en lugar de usar herencia extensiva.</li>
+                        <li><strong>Inmutabilidad en Objetos:</strong> Considera hacer tus objetos inmutables (sus atributos se establecen en el constructor y no cambian) para simplificar el estado y mejorar la previsibilidad. Usa <code>final</code> para los atributos.</li>
+                        <li><strong>Documenta tus APIs Públicas:</strong> Si creas clases para ser usadas por otros (o por tu yo futuro), una buena documentación es crucial.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="fase4" class="roadmap-section">
+            <h2><span class="emoji">⚡</span> Fase 4: Programación Asíncrona y Temas Avanzados (Experto)</h2>
+            <button class="toggle-content">Mostrar/Ocultar Contenido</button>
+            <div class="content hidden">
+                <p>Dart es un lenguaje de un solo hilo (single-threaded) pero maneja la asincronía de manera muy eficiente.</p>
+
+                <h3>1. Programación Asíncrona:</h3>
+                <ul>
+                    <li><strong>El Bucle de Eventos (Event Loop):</strong> Cómo Dart maneja operaciones que toman tiempo sin bloquear el hilo principal.</li>
+                    <li><strong><code>Future</code></strong>: Representa el resultado de una operación asíncrona que se completará en el futuro (con un valor o un error).
+                        <pre><code class="language-dart">
+Future&lt;String&gt; descargarDatos() {
+  return Future.delayed(Duration(seconds: 2), () {
+    // Simula una operación de red
+    if (DateTime.now().second % 2 == 0) {
+      return 'Datos descargados exitosamente.';
+    } else {
+      throw Exception('Error de red simulado.');
+    }
+  });
+}
+
+void main() {
+  print('Iniciando descarga...');
+  descargarDatos().then((resultado) {
+    print(resultado);
+  }).catchError((error) {
+    print('Error al descargar: $error');
+  }).whenComplete(() {
+    print('Descarga finalizada (éxito o error).');
+  });
+  print('...otras tareas mientras se descarga...');
+}
+                        </code></pre>
+                    </li>
+                    <li><strong><code>async</code> y <code>await</code></strong>: Azúcar sintáctico para trabajar con <code>Future</code>s de manera más legible, similar al código síncrono.
+                        <pre><code class="language-dart">
+Future&lt;void&gt; obtenerYProcesarDatos() async {
+  print('Iniciando descarga...');
+  try {
+    String datos = await descargarDatos(); // Pausa la ejecución HASTA que el Future se complete
+    print('Procesando: $datos');
+    // ...más lógica de procesamiento...
+  } catch (e) {
+    print('Error en obtenerYProcesarDatos: $e');
+  } finally {
+    print('Operación de datos completada.');
+  }
+}
+
+void main() async { // main también puede ser async
+  await obtenerYProcesarDatos();
+  print('Todo el proceso asíncrono ha terminado.');
+}
+                        </code></pre>
+                    </li>
+                    <li><strong><code>Stream</code></strong>: Para secuencias de eventos asíncronos (múltiples valores a lo largo del tiempo). Similar a un <code>Future</code> que puede emitir muchos valores.
+                        <ul>
+                            <li><code>StreamController</code>, <code>listen</code>, <code>async*</code>, <code>yield</code>.</li>
+                        </ul>
+                        <pre><code class="language-dart">
+Stream&lt;int&gt; contadorStream(int max) async* { // async* para generadores de Stream
+  for (int i = 1; i &lt;= max; i++) {
+    await Future.delayed(Duration(seconds: 1));
+    yield i; // Emite un valor al stream
+    if (i == 3) {
+      // yield* otroStream; // Para emitir todos los eventos de otro stream
+    }
+  }
+}
+
+void main() async {
+  print('Iniciando stream...');
+  StreamSubscription&lt;int&gt;? suscripcion; // Para poder cancelar la suscripción
+  suscripcion = contadorStream(5).listen(
+    (numero) {
+      print('Recibido del stream: $numero');
+      if (numero == 3) {
+        // suscripcion?.cancel(); // Opcional: cancelar la escucha
+      }
+    },
+    onError: (error) {
+      print('Error en el stream: $error');
+    },
+    onDone: () {
+      print('Stream completado.');
+    },
+    cancelOnError: false, // true si quieres cancelar en el primer error
+  );
+  // await for (var numero in contadorStream(5)) { // Otra forma de consumir streams
+  //   print('Recibido con await for: $numero');
+  // }
+  print('...otras tareas mientras el stream emite...');
+}
+                        </code></pre>
+                    </li>
+                </ul>
+
+                <h3>2. Genéricos (<code>&lt;T&gt;</code>):</h3>
+                <ul>
+                    <li>Para escribir código reutilizable que pueda funcionar con diferentes tipos, manteniendo la seguridad de tipos.
+                        <pre><code class="language-dart">
+class Caja&lt;T&gt; {
+  T _contenido;
+  Caja(this._contenido);
+
+  T obtenerContenido() => _contenido;
+  void ponerContenido(T nuevoContenido) {
+    _contenido = nuevoContenido;
+  }
+}
+
+var cajaDeEnteros = Caja&lt;int&gt;(10);
+var cajaDeStrings = Caja&lt;String&gt;('Hola');
+// var cajaDeStrings = Caja('Hola'); // El tipo se puede inferir
+
+int valor = cajaDeEnteros.obtenerContenido();
+// String otroValor = cajaDeEnteros.obtenerContenido(); // Error de tipo
+                        </code></pre>
+                    </li>
+                    <li>Genéricos en funciones, clases y métodos.</li>
+                    <li>Restricción de tipos genéricos (<code>&lt;T extends ClaseBase&gt;</code>).</li>
+                </ul>
+
+                <h3>3. Isolates (Concurrencia):</h3>
+                <ul>
+                    <li>Dart es de un solo hilo, pero los <code>Isolates</code> permiten ejecutar código Dart en hilos separados con su propia memoria, evitando problemas de concurrencia de estado compartido.</li>
+                    <li>Útil para tareas computacionalmente intensivas que podrían bloquear la UI.</li>
+                    <li>Comunicación entre isolates mediante puertos (<code>SendPort</code>, <code>ReceivePort</code>).
+                        <pre><code class="language-dart">
+import 'dart:isolate';
+
+// Función que se ejecutará en el nuevo isolate
+void tareaPesada(SendPort sendPort) {
+  int suma = 0;
+  for (int i = 0; i < 1000000000; i++) {
+    suma += i;
+  }
+  sendPort.send('Resultado de la tarea pesada: $suma');
+}
+
+void main() async {
+  final receivePort = ReceivePort(); // Puerto para recibir mensajes del isolate
+
+  print('Creando isolate...');
+  // Crear y ejecutar el isolate
+  final isolate = await Isolate.spawn(tareaPesada, receivePort.sendPort);
+
+  print('Isolate creado. Esperando mensaje...');
+
+  // Escuchar mensajes del isolate
+  receivePort.listen((dynamic data) {
+    print('Mensaje recibido del isolate: $data');
+    receivePort.close(); // Cerrar el puerto cuando ya no se necesite
+    isolate.kill();     // Terminar el isolate
+  });
+
+  print('...main isolate continúa mientras el otro trabaja...');
+}
+                        </code></pre>
+                    </li>
+                </ul>
+
+                <h3>4. Metaprogramación (Reflexión y Generación de Código):</h3>
+                <ul>
+                    <li><strong><code>dart:mirrors</code></strong> (Reflexión): Permite inspeccionar y manipular código en tiempo de ejecución. Tiene limitaciones de uso, especialmente en Flutter para producción (tree shaking). Usar con precaución.</li>
+                    <li><strong>Generación de Código (<code>build_runner</code>, <code>source_gen</code>):</strong> Un enfoque más común y eficiente para tareas de metaprogramación en Dart. Se ejecuta en tiempo de compilación para generar código Dart auxiliar (ej: para serialización JSON, inyección de dependencias).</li>
+                </ul>
+
+                <h3>5. Extensiones (<code>extension</code>):</h3>
+                <ul>
+                    <li>Permiten añadir nueva funcionalidad a clases existentes, incluso a las que no controlas (como las del SDK).
+                        <pre><code class="language-dart">
+extension StringExtensions on String {
+  String capitalizarPrimeraLetra() {
+    if (this.isEmpty) return this;
+    return '${this[0].toUpperCase()}${this.substring(1)}';
+  }
+
+  int? toIntOrNull() {
+    return int.tryParse(this);
+  }
+}
+
+void main() {
+  String nombre = "ana";
+  print(nombre.capitalizarPrimeraLetra()); // "Ana"
+
+  String numero = "123";
+  String noNumero = "abc";
+  print(numero.toIntOrNull());    // 123
+  print(noNumero.toIntOrNull()); // null
+}
+                        </code></pre>
+                    </li>
+                </ul>
+
+                <h3>6. Bibliotecas y Paquetes (<code>pub.dev</code>):</h3>
+                <ul>
+                    <li><code>pubspec.yaml</code>: El archivo de manifiesto del proyecto, donde se declaran las dependencias.</li>
+                    <li><code>pub get</code>: Comando para obtener/actualizar dependencias.</li>
+                    <li><code>pub.dev</code>: El repositorio oficial de paquetes Dart y Flutter. Aprende a buscar, evaluar e integrar paquetes.</li>
+                    <li>Paquetes comunes: <code>http</code> (peticiones HTTP), <code>provider</code> (gestión de estado en Flutter), <code>intl</code> (internacionalización), <code>json_serializable</code> (serialización JSON), <code>path</code> (manejo de rutas de archivos).</li>
+                </ul>
+
+                <h3>7. Herramientas de Desarrollo y Buenas Prácticas:</h3>
+                <ul>
+                    <li><strong>Testing:</strong>
+                        <ul>
+                            <li><strong>Unit Tests (<code>test</code> package):</strong> Para probar unidades de código aisladas (funciones, clases).</li>
+                            <li><strong>Widget Tests (Flutter):</strong> Para probar widgets.</li>
+                            <li><strong>Integration Tests (Flutter):</strong> Para probar flujos completos de la aplicación.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Debugging:</strong> Uso efectivo del debugger de tu IDE (breakpoints, inspección de variables, call stack).</li>
+                    <li><strong>Linting:</strong> Uso de <code>analysis_options.yaml</code> para configurar reglas de análisis estático y mantener un estilo de código consistente (ej: <code>lints</code>, <code>flutter_lints</code>).</li>
+                    <li><strong>DevTools:</strong> Herramientas de Dart y Flutter para profiling de rendimiento, inspección de UI, etc.</li>
+                    <li><strong>Control de Versiones (Git):</strong> Esencial para cualquier proyecto de desarrollo.</li>
+                </ul>
+
+                <div class="ejercicios">
+                    <h4><span class="emoji">🏋️</span> Ejercicios Fase 4:</h4>
+                    <ol>
+                        <li>Crea una función que simule la descarga de múltiples archivos en paralelo usando <code>Future.wait()</code>.</li>
+                        <li>Escribe un programa que lea un archivo de texto grande línea por línea usando <code>Stream</code>s y cuente la frecuencia de cada palabra.</li>
+                        <li>Refactoriza una de tus clases de la Fase 3 para usar genéricos, permitiendo que trabaje con diferentes tipos de datos de forma segura.</li>
+                        <li>(Avanzado) Crea una pequeña aplicación de chat de consola donde los mensajes se envían/reciben de forma asíncrona.</li>
+                        <li>Explora <code>pub.dev</code>, encuentra un paquete que te interese (ej: para hacer peticiones HTTP o manipular fechas) e intégralo en un pequeño proyecto.</li>
+                        <li>Escribe una extensión para la clase <code>DateTime</code> que devuelva <code>true</code> si la fecha es hoy.</li>
+                        <li>(Teórico/Opcional) Investiga cómo usar <code>Isolate.run</code> (una forma más sencilla para tareas one-off) o intenta mover una función de cálculo intensivo a un <code>Isolate</code>.</li>
+                    </ol>
+                </div>
+
+                <div class="trucos-consejos">
+                    <h4><span class="emoji">💡</span> Trucos y Consejos Fase 4:</h4>
+                    <ul>
+                        <li><strong>Manejo de Errores en Código Asíncrono:</strong> Es crucial. Usa <code>try-catch</code> con <code>await</code> y el método <code>.catchError()</code> en <code>Future</code>s y <code>Stream</code>s.</li>
+                        <li><strong>Evita <code>async void</code>:</strong> Excepto para manejadores de eventos de UI. <code>async void</code> no permite capturar errores fácilmente ni saber cuándo ha terminado la operación. Prefiere <code>async Future&lt;void&gt;</code>.</li>
+                        <li><strong>Lee el Código Fuente de Paquetes Populares:</strong> Una excelente manera de aprender patrones avanzados y buenas prácticas.</li>
+                        <li><strong>Contribuye a Proyectos Open Source:</strong> La mejor forma de poner a prueba tus habilidades y aprender de otros.</li>
+                        <li><strong>Mantente Actualizado:</strong> Dart es un lenguaje en evolución. Sigue el blog oficial de Dart y las notas de lanzamiento.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="fase5" class="roadmap-section">
+            <h2><span class="emoji">🌌</span> Fase 5: Especialización y Mejora Continua (Más Allá de Experto)</h2>
+            <button class="toggle-content">Mostrar/Ocultar Contenido</button>
+            <div class="content hidden">
+                <ul>
+                    <li><strong>Flutter:</strong> Si tu objetivo es el desarrollo móvil/web/desktop, profundiza en Flutter. Esto implica aprender sobre widgets, gestión de estado, arquitectura de aplicaciones Flutter, etc.</li>
+                    <li><strong>Desarrollo Backend con Dart:</strong> Explora frameworks como Conduit (anteriormente Aqueduct), Alfred, o simplemente usa <code>dart:io</code> y paquetes como <code>shelf</code>.</li>
+                    <li><strong>WebAssembly (Wasm):</strong> Dart tiene soporte experimental para compilar a Wasm, abriendo puertas a ejecución de alto rendimiento en el navegador y otros entornos.</li>
+                    <li><strong>Optimización de Rendimiento:</strong> Aprende a usar Dart DevTools para perfilar y optimizar tus aplicaciones.</li>
+                    <li><strong>Diseño de APIs y Paquetes:</strong> Aprende a diseñar bibliotecas robustas, bien documentadas y fáciles de usar por otros desarrolladores.</li>
+                    <li><strong>Participación en la Comunidad:</strong> Asiste a meetups, conferencias, contribuye a discusiones online.</li>
+                    <li><strong>Enseñar y Mentorizar:</strong> Enseñar a otros es una de las mejores formas de consolidar tu propio conocimiento.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="recursos" class="roadmap-section">
+            <h2><span class="emoji">📚</span> Recursos Adicionales Clave:</h2>
+            <button class="toggle-content">Mostrar/Ocultar Contenido</button>
+            <div class="content hidden">
+                <ul>
+                    <li><strong>Documentación Oficial de Dart:</strong> <a href="https://dart.dev/" target="_blank">https://dart.dev/</a> (¡Tu fuente principal!)</li>
+                    <li><strong>DartPad:</strong> <a href="https://dartpad.dev/" target="_blank">https://dartpad.dev/</a></li>
+                    <li><strong>Pub.dev (Repositorio de Paquetes):</strong> <a href="https://pub.dev/" target="_blank">https://pub.dev/</a></li>
+                    <li><strong>Flutter (si es tu interés):</strong> <a href="https://flutter.dev/" target="_blank">https://flutter.dev/</a></li>
+                    <li><strong>Canal de YouTube de Dart:</strong> <a href="https://www.youtube.com/c/dartlang" target="_blank">Canal de YouTube de Dart</a></li>
+                    <li><strong>Canal de YouTube de Flutter:</strong> <a href="https://www.youtube.com/c/flutterdev" target="_blank">Canal de YouTube de Flutter</a></li>
+                    <li><strong>Cursos online:</strong> Plataformas como Udemy, Coursera, Pluralsight, freeCodeCamp suelen tener cursos de Dart y Flutter.</li>
+                </ul>
+            </div>
+        </section>
+
+        <p>¡Este roadmap es extenso, así que tómate tu tiempo, practica constantemente y, lo más importante, diviértete programando con Dart! ¡Mucha suerte en tu viaje de aprendizaje! <span class="emoji">💻</span><span class="emoji">🌟</span></p>
+
+    </div>
+
+    <footer>
+        <p>© <span id="currentYear"></span> Tu Guía Dart. ¡Feliz codificación!</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
